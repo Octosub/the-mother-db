@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_13_083452) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_13_085119) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,11 +46,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_13_083452) do
     t.date "start_date"
     t.date "end_date"
     t.boolean "status"
-    t.bigint "poweru_powers_id", null: false
+    t.bigint "poweru_power_id", null: false
     t.bigint "poweru_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["poweru_powers_id"], name: "index_poweru_bookings_on_poweru_powers_id"
+    t.index ["poweru_power_id"], name: "index_poweru_bookings_on_poweru_power_id"
     t.index ["poweru_user_id"], name: "index_poweru_bookings_on_poweru_user_id"
   end
 
@@ -89,7 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_13_083452) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "poweru_bookings", "poweru_powers", column: "poweru_powers_id"
+  add_foreign_key "poweru_bookings", "poweru_powers"
   add_foreign_key "poweru_bookings", "poweru_users"
   add_foreign_key "poweru_powers", "poweru_users"
 end
